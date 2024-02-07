@@ -1,0 +1,51 @@
+～2/2
+作品登録機能が一旦完成
+ただしタグ付けなどの残件はあり
+次回、作品検索機能に着手
+
+2/5
+作品検索の画面遷移図完了
+基本アーキテクチャ図完了
+なぜか動かいないＤＡＯテスト。。。
+LIKE '%変数%'　のなかに半角のスペースがあったのが原因
+なんかもっと簡単に条件かけそう。。。
+LIKE '%'　で全部指定できそう
+２つの条件で動いたため、残りの条件についてもソースに追加
+ProductsDAOの条件記述の途中
+
+次回、ProductsDAOの条件記述の続きから
+
+2/6
+作品検索機能続き
+ProductsDAO.selectProduct()完了
+DAOテスト完了
+SelectProductLogicクラス完了、テスト完了
+Servletとjspの画面遷移完了
+フォーム入力画面完了
+リクエストスコープに保存まで完了
+
+SelectProductServletのdoPost()：リクエストパラメータ取得等のコードを書くとエラー
+ーーーー
+java.lang.NumberFormatException: For input string: ""
+	java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	java.base/java.lang.Integer.parseInt(Integer.java:678)
+	java.base/java.lang.Integer.valueOf(Integer.java:999)
+	servlet.SelectProductServlet.doPost(SelectProductServlet.java:57)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ーーーーー
+フォーム入力が空欄の場合、nullではない？
+空文字とnullは違うのか？
+リクエストパラメータ取得時にnullかどうか判定したら一応動いた
+出力まで反映できているか確認してから残りの条件文展開
+
+jsp出力完了
+
+一部 != null　でも動かなかったが、!= ""　としたら動いた
+StringとIntegerクラスの違いが原因としてありそう。。。
+
+とりあえず作品検索機能まで完了！
+
+次回、githubの復習から！！
+
