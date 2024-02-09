@@ -38,16 +38,16 @@
                     <mxGeometry x="790" y="190" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="Product (package:model)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="-280" width="230" height="260" as="geometry"/>
+                    <mxGeometry x="30" y="-280" width="230" height="270" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="- title : String&#10;- series : String&#10;- category : String&#10;- glaze : String&#10;- pattern : String&#10;- color : String&#10;- size : String&#10;- price : int&#10;- stock : int&#10;- productYera: int&#10;- isOnlineShop : boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="19" vertex="1">
-                    <mxGeometry y="26" width="230" height="174" as="geometry"/>
+                <mxCell id="20" value="- title : String&#10;- series : String&#10;- category : String&#10;- glaze : String&#10;- pattern : String&#10;- color : String&#10;- size : String&#10;- price : int&#10;- stock : int&#10;- productYera: int&#10;- isOnlineShop : boolean&#10;-productID : int （後から追加）" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="19" vertex="1">
+                    <mxGeometry y="26" width="230" height="184" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="19" vertex="1">
-                    <mxGeometry y="200" width="230" height="8" as="geometry"/>
+                    <mxGeometry y="210" width="230" height="8" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="+ setter&#10;+ getter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="19" vertex="1">
-                    <mxGeometry y="208" width="230" height="52" as="geometry"/>
+                    <mxGeometry y="218" width="230" height="52" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="PRODUCTS&lt;br&gt;テーブル" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="145" width="120" height="150" as="geometry"/>

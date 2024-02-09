@@ -70,3 +70,29 @@ git push	//“リモート”レポジトリにプッシュ
 ・DBにシリーズやカテゴリーのテーブルを追加してPRODUCTSテーブルにタグ付け
 ・タグ付け含めてビューを作成
 ・上記に合わせてコード修正（テーブル名とか）
+
+2/9
+基本アーキテクチャ図の中のProductクラス図にproductIDフィールド追加
+README.md更新
+
+AUTO_INCREMENTを初期化したいけど、
+ALTER TABLE tableName AUTO_INCREMENT = 1;　がうまくいかない。。。
+TRUNCATE TABLE　でも初期化できない
+TRUNCATE TABLE SERIES;
+ALTER TABLE SERIES ALTER COLUMN SERIES_ID INT AUTO_INCREMENT(1);　でできた。
+ただ、PRIMARY KEY制約が生きているのかわからない。。。
+
+SERIES,CATEGORY,GLAZEテーブルの作成完了
+外部参照キーありのPRODUCTS_WITH_FKテーブル作成完了
+外部キーと連携させたビューの作成完了（ビュー要る？ビューを作るタイミング次第では毎回セレクトしてるのと変わらん気がする）
+
+インデックスは作る？
+
+次回に向けてコード修正が必要そうなところを挙げておく
+・productクラスのフィールドは変更しなくてもいいが、IDと名前の連携をさせる必要がある（どのクラス？DAOか？）
+・検索条件についても同様
+・フォーム画面の検索条件指定で、外部参照箇所についてはプルダウンとかできたら便利そう（これの実装ができたら上二つも楽そうだし先にこれに着手する）
+SelectProductServletのdoGet()でDAO等を経由してデータベースにアクセスし、シリーズ、カテゴリー、釉薬のIDと名前をそれぞれのクラスに格納して、リクエストスコープに保存。
+selectProduct.jspでリクエストスコープからデータを読み込んでプルダウンに反映
+新たに必要となるもの：シリーズクラス、カテゴリークラス、釉薬クラス、DAOのメソッド、（Logic）
+
