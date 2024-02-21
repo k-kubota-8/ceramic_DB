@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +16,27 @@
 	</p>
 	<form action="SelectProductServlet" method="post">
 	作品タイトル:<input type="text" name="title"><br>
-	シリーズ:<input type="text" name="series"><br>
+	<%-- シリーズ:<input type="text" name="series"><br>
 	カテゴリー:<input type="text" name="category"><br>
-	釉薬:<input type="text" name="glaze"><br>
+	釉薬:<input type="text" name="glaze"><br> --%>
+	シリーズ(プルダウン):<select name="seriesTag">
+		<option value="">条件指定なし</option>
+		<c:forEach var="sTag" items="${seriesTag}">
+			<option value="${sTag.seriesID }"><c:out value="${sTag.seriesID}:${sTag.seriesName}"></c:out></option>
+		</c:forEach>
+	</select><br>
+	カテゴリー(プルダウン):<select name="categoryTag">
+		<option value="">条件指定なし</option>
+		<c:forEach var="cTag" items="${categoryTag }">
+			<option value="${cTag.categoryID }"><c:out value="${cTag.categoryID}:${cTag.categoryName}" /></option>
+		</c:forEach>
+	</select><br>
+	釉薬(プルダウン):<select name="glazeTag">
+		<option value="">条件指定なし</option>
+		<c:forEach var="gTag" items="${glazeTag}">
+			<option value="${gTag.glazeID }"><c:out value="${gTag.glazeID}:${gTag.glazeName}" /></option>
+		</c:forEach>
+	</select><br>
 	柄:<input type="text" name="pattern"><br>
 	色:<input type="text" name="color"><br>
 	サイズ:<input type="text" name="size"><br>
@@ -28,6 +47,8 @@
 	<input type="radio" name="isOnlineShop" value="0">無&nbsp;&nbsp;&nbsp;
 	<input type="radio" name="isOnlineShop" value="2">どちらも<br>
 	
+	
+	<br>
 	<input type ="submit" value="検索">&nbsp;&nbsp;&nbsp;
 	<input type="reset" value="入力内容取消">
 	</form>

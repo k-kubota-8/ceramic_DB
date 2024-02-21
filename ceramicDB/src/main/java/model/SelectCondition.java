@@ -15,6 +15,9 @@ public class SelectCondition {
 	private Integer productYearLowerLimit;
 	private Integer productYearUpperLimit;
 	private Integer onlineShop; //0:無 1:有　2:両方
+	private Integer seriesID;
+	private Integer categoryID;
+	private Integer glazeID;
 	
 	public String getTitle() {
 		return title;
@@ -101,6 +104,13 @@ public class SelectCondition {
 		this.onlineShop = onlineShop;
 	}
 	
+	public Integer getSeriesID() { return seriesID;}
+	public void setSeriesID(Integer seriesID) {this.seriesID = seriesID;}
 	
+	public Integer getCategoryID() {return categoryID;}
+	public void setCategoryID(Integer categoryID) {this.categoryID = categoryID;}
+	
+	public Integer getGlazeID() {return glazeID;}
+	public void setGlazeID(Integer glazeID) {this.glazeID = glazeID;}
 	
 }

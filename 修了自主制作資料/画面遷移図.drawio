@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="y22X9CAbKY4w9P3UAj9e" name="ページ1">
-        <mxGraphModel dx="2088" dy="1728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1899" dy="1644" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -399,6 +399,25 @@
                             <mxPoint x="490" y="1300"/>
                             <mxPoint x="520" y="1210"/>
                         </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="130" value="リクエストスコープ&lt;br&gt;内容：シリーズ、カテゴリー、釉薬（List）&lt;br&gt;属性名：seriesTag,&lt;br&gt;categoryTag,&lt;br&gt;glazeTag" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="690" width="300" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="" style="curved=1;endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.811;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="107" target="107" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="350" y="824.6153846153848" as="sourcePoint"/>
+                        <mxPoint x="330" y="790" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="450" y="840"/>
+                            <mxPoint x="480" y="750"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="132" value="" style="shape=flexArrow;endArrow=classic;html=1;exitX=0.974;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="104" target="130" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="362.5" y="714.9993650793648" as="sourcePoint"/>
+                        <mxPoint x="432.5" y="726.1104761904761" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

@@ -42,6 +42,7 @@ public class ProductsDAO {
 			//INSERT文を用意
 			String sql =
 					"INSERT INTO PRODUCTS (TITLE,SERIES,CATEGORY,GLAZE,PATTERN,COLOR,SIZE,PRICE,STOCK,PRODUCT_YEAR,IS_ONLINE_SHOP) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			//INSERT文に値を流し込みSQL文を組み立てる
@@ -77,14 +78,21 @@ public class ProductsDAO {
 		//データベースに接続 try-with-resource文で記述->close()の記載不要
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 			//検索系SQL文を用意
-			String sql = "SELECT * FROM PRODUCTS";
+//			String sql = "SELECT * FROM PRODUCTS";
+			//PRODUCTS_WITH_FK テーブルからの検索系SQL文を用意
+			String sql = "SELECT PRODUCT_ID, TITLE, S.SERIES_NAME AS SERIES, C.CATEGORY_NAME AS CATEGORY, G.GLAZE_NAME AS GLAZE, PATTERN, COLOR, SIZE, PRICE, STOCK, PRODUCT_YEAR, IS_ONLINE_SHOP FROM PRODUCTS_WITH_FK AS P JOIN SERIES AS S ON P.SERIES_ID = S.SERIES_ID JOIN CATEGORY AS C ON P.CATEGORY_ID = C.CATEGORY_ID JOIN GLAZE AS G ON P.GLAZE_ID = G.GLAZE_ID";
+			
+			
 			//文字列連結のためにStringBuilderに変換
 			StringBuilder sqlsb = new StringBuilder(sql);
 			//条件によってSQL文に追加
 			if(!(selectCondition.getTitle() == null &&
-					selectCondition.getSeries() == null &&
-					selectCondition.getCategory() == null &&
-					selectCondition.getGlaze() == null &&
+//					selectCondition.getSeries() == null &&
+					selectCondition.getSeriesID() == null &&
+//					selectCondition.getCategory() == null &&
+					selectCondition.getCategoryID() == null &&
+//					selectCondition.getGlaze() == null &&
+					selectCondition.getGlazeID() == null &&
 					selectCondition.getPattern() == null &&
 					selectCondition.getColor() == null &&
 					selectCondition.getSize() == null &&
@@ -100,14 +108,23 @@ public class ProductsDAO {
 			if(selectCondition.getTitle() != null) {
 				sqlsb = sqlsb.append(" TITLE LIKE '%" + selectCondition.getTitle() + "%' AND");
 			}
-			if(selectCondition.getSeries() != null) {
-				sqlsb = sqlsb.append(" SERIES LIKE '%" + selectCondition.getSeries() + "%' AND");
+//			if(selectCondition.getSeries() != null) {
+//				sqlsb = sqlsb.append(" SERIES LIKE '%" + selectCondition.getSeries() + "%' AND");
+//			}
+			if(selectCondition.getSeriesID() != null) {
+				sqlsb = sqlsb.append(" P.SERIES_ID = " + selectCondition.getSeriesID() + " AND");
 			}
-			if(selectCondition.getCategory() != null) {
-				sqlsb = sqlsb.append(" CATEGORY LIKE '%" + selectCondition.getCategory() + "%' AND");
+//			if(selectCondition.getCategory() != null) {
+//				sqlsb = sqlsb.append(" CATEGORY LIKE '%" + selectCondition.getCategory() + "%' AND");
+//			}
+			if(selectCondition.getCategoryID() != null) {
+				sqlsb = sqlsb.append(" P.CATEGORY_ID = " + selectCondition.getCategoryID() + " AND");
 			}
-			if(selectCondition.getGlaze() != null) {
-				sqlsb = sqlsb.append(" GLAZE LIKE '%" + selectCondition.getGlaze() + "%' AND");
+//			if(selectCondition.getGlaze() != null) {
+//				sqlsb = sqlsb.append(" GLAZE LIKE '%" + selectCondition.getGlaze() + "%' AND");
+//			}
+			if(selectCondition.getGlazeID() != null) {
+				sqlsb = sqlsb.append(" P.GLAZE_ID = " + selectCondition.getGlazeID() + " AND");
 			}
 			if(selectCondition.getPattern() != null) {
 				sqlsb = sqlsb.append(" PATTERN LIKE '%" + selectCondition.getPattern() + "%' AND");
@@ -152,7 +169,8 @@ public class ProductsDAO {
 			//ORDER BYを追加
 			sqlsb.append(" ORDER BY PRODUCT_ID ASC");
 			//Stringに戻す
-			sql = sqlsb.toString(); 
+			sql = sqlsb.toString();
+			
 			//SQL文の送信ひな形を用意
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			//SQL文をDBMSに送信する

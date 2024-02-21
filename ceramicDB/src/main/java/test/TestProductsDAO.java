@@ -62,20 +62,20 @@ public class TestProductsDAO {
 		SelectCondition sc = new SelectCondition();
 		
 		//条件指定
-		sc.setTitle("テスト");
-		sc.setSeries(null);
-		sc.setCategory(null);
-		sc.setGlaze(null);
-		sc.setPattern(null);
-		sc.setColor(null);
-		sc.setSize(null);
-		sc.setPriceLowerLimit(null);
-		sc.setPriceUpperLimit(null);
-		sc.setStockLowerLimit(null);
-		sc.setStockUpperLimit(null);
-		sc.setProductYearLowerLimit(null);
-		sc.setProductYearUpperLimit(null);
-		sc.setOnlineShop(1);
+//		sc.setTitle("テスト");
+//		sc.setSeries(null);
+//		sc.setCategory(null);
+//		sc.setGlaze(null);
+//		sc.setPattern(null);
+//		sc.setColor(null);
+//		sc.setSize(null);
+//		sc.setPriceLowerLimit(null);
+//		sc.setPriceUpperLimit(null);
+//		sc.setStockLowerLimit(null);
+//		sc.setStockUpperLimit(null);
+//		sc.setProductYearLowerLimit(null);
+//		sc.setProductYearUpperLimit(null);
+//		sc.setOnlineShop(1);
 		
 		
 		ProductsDAO dao = new ProductsDAO();

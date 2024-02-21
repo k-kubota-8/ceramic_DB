@@ -96,3 +96,41 @@ SelectProductServletのdoGet()でDAO等を経由してデータベースにア�
 selectProduct.jspでリクエストスコープからデータを読み込んでプルダウンに反映
 新たに必要となるもの：シリーズクラス、カテゴリークラス、釉薬クラス、DAOのメソッド、（Logic）
 
+2/21
+Series, Category, Glaze各クラス作成完了
+上記3テーブルのIDとNameを取得するDAOクラス作成完了
+
+--作業とは別--
+HTMLmetaTagに noindex,nofollow　を入れると検索結果に引っかからない　＊自主制作の架空サイトであればほぼ必須の設定
+--
+
+シリーズテーブルに0.なしを追加してなかったから一度テーブルの中身を削除して作り直そうとしたところ
+"CONSTRAINT_1C" が依存しているため、"SERIES" をドロップすることはできません
+Cannot drop "SERIES" because "CONSTRAINT_1C" depends on it; SQL statement:
+DROP TABLE SERIES [90107-224] 90107/90107 (ヘルプ)
+エラー
+外部キー制約とかの関係な気もする
+解決できないので一旦、UPDATE文でID＝1のNameをなしに書き換えることで対応
+その後
+INSERT INTO SERIES (SERIES_NAME)
+VALUES ('赤緑');
+を実行したら制約違反でエラー。Selectでテーブルの中身を見ても赤緑はなしに変更してあるのにエラー。よくわからないのでとりあえず後回しで作業を進める。
+
+TestProductLogicの動作テスト完了
+
+シリーズ、カテゴリー、釉薬のプルダウンメニュー作成完了
+SelectConditionのフィールドにseriesID,categoryID,glazeIDを追加
+
+DAOやLogic等の修正を終えて動かしてみたが、検索結果が正しくない。
+検索画面までは問題なくできていそうだが、検索結果に何も出てこない
+何もひっかからない条件をデフォルトで入力してしまっているのか、SQL文が間違っているのか、
+
+結果としてはSQL文でASで別名を設定していなかったことが原因
+
+プルダウンを用いた検索まで完了！
+
+次回は作品の登録方法の修正
+の前にシリーズ、カテゴリー、釉薬の追加登録機能を実装しようかな（時間次第。。。）
+
+
+

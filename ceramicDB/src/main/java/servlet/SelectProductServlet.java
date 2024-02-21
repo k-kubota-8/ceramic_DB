@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Category;
+import model.Glaze;
 import model.Product;
+import model.ProductTagLogic;
 import model.SelectCondition;
 import model.SelectProductLogic;
+import model.Series;
 
 /**
  * Servlet implementation class SelectProductServlet
@@ -33,6 +37,19 @@ public class SelectProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//シリーズタグ、カテゴリータグ、釉薬タグをDBからそれぞれ入手
+		List<Series> seriesTag = new ArrayList<>();
+		List<Category> categoryTag = new ArrayList<>();
+		List<Glaze> glazeTag = new ArrayList<>();
+		ProductTagLogic pTagLogic = new ProductTagLogic();
+		seriesTag = pTagLogic.getSeriesTable();
+		categoryTag = pTagLogic.getCategoryTable();
+		glazeTag = pTagLogic.getGlazeTable();
+		//シリーズタグ、カテゴリータグ、釉薬タグをそれぞれリクエストスコープに保存
+//		request.setCharacterEncoding("UTF-8");
+		request.setAttribute("seriesTag", seriesTag);
+		request.setAttribute("categoryTag", categoryTag);
+		request.setAttribute("glazeTag", glazeTag);
 		//selectProduct.jspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/selectProduct.jsp");
 		dispatcher.forward(request, response);
@@ -50,15 +67,27 @@ public class SelectProductServlet extends HttpServlet {
 		if(request.getParameter("title") != null) {
 			selectCondition.setTitle(request.getParameter("title").trim());
 		}else {selectCondition.setTitle(null);}
-		if(request.getParameter("series") != null) {
-			selectCondition.setSeries(request.getParameter("series").trim());
-		}else {selectCondition.setSeries(null);}
-		if(request.getParameter("category") != null) {
-			selectCondition.setCategory(request.getParameter("category").trim());
-		}else {selectCondition.setCategory(null);}
-		if(request.getParameter("glaze") != null) {
-			selectCondition.setGlaze(request.getParameter("glaze").trim());
-		}else {selectCondition.setGlaze(null);}
+//		if(request.getParameter("series") != null) {
+//			selectCondition.setSeries(request.getParameter("series").trim());
+//		}else {selectCondition.setSeries(null);}
+		//プルダウン用
+		if(request.getParameter("seriesTag") != "") {
+			selectCondition.setSeriesID(Integer.valueOf(request.getParameter("seriesTag").trim()));
+		}else {selectCondition.setSeriesID(null);}
+//		if(request.getParameter("category") != null) {
+//			selectCondition.setCategory(request.getParameter("category").trim());
+//		}else {selectCondition.setCategory(null);}
+		//プルダウン用
+		if(request.getParameter("categoryTag") != "") {
+			selectCondition.setCategoryID(Integer.valueOf(request.getParameter("categoryTag").trim()));
+		}else {selectCondition.setCategoryID(null);}
+//		if(request.getParameter("glaze") != null) {
+//			selectCondition.setGlaze(request.getParameter("glaze").trim());
+//		}else {selectCondition.setGlaze(null);}
+		//プルダウン用
+		if(request.getParameter("glazeTag") != "") {
+			selectCondition.setGlazeID(Integer.valueOf(request.getParameter("glazeTag").trim()));
+		}else {selectCondition.setGlazeID(null);}
 		if(request.getParameter("pattern") != null) {
 			selectCondition.setPattern(request.getParameter("pattern").trim());
 		}else {selectCondition.setPattern(null);}
