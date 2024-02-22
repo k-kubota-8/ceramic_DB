@@ -138,5 +138,7 @@ JOIN CATEGORY AS C
 ON P.CATEGORY_ID = C.CATEGORY_ID
 JOIN GLAZE AS G
 ON P.GLAZE_ID = G.GLAZE_ID
-
 WHERE P.SERIES_ID = 1
+
+delete from series where series_id = 8;
+

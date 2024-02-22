@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="y22X9CAbKY4w9P3UAj9e" name="ページ1">
-        <mxGraphModel dx="1899" dy="1644" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2088" dy="1728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -419,6 +419,44 @@
                         <mxPoint x="362.5" y="714.9993650793648" as="sourcePoint"/>
                         <mxPoint x="432.5" y="726.1104761904761" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="133" value="セッションスコープ&lt;br&gt;内容：シリーズ、カテゴリー、釉薬（List）&lt;br&gt;属性名：seriesTag,&lt;br&gt;categoryTag,&lt;br&gt;glazeTag" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+                    <mxGeometry x="1080" y="-190" width="300" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="134" value="" style="shape=flexArrow;endArrow=classic;html=1;" edge="1" parent="1" source="36" target="133">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1060.0300000000004" y="-23.120000000000452" as="sourcePoint"/>
+                        <mxPoint x="1149.9699999999996" y="-10.00047011752951" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="135" value="" style="curved=1;endArrow=classic;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="43" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1215.9100000000003" y="19.999999999999545" as="sourcePoint"/>
+                        <mxPoint x="1390" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1260" y="10"/>
+                            <mxPoint x="1260" y="-60"/>
+                            <mxPoint x="1340" y="-80"/>
+                            <mxPoint x="1400" y="-20"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="136" value="【作品情報一覧画面】&lt;br&gt;・作品の一覧&lt;br&gt;各作品にリンクがあり、&lt;br&gt;クリックすることで&lt;br&gt;変更画面に遷移&lt;br&gt;&lt;br&gt;&lt;br&gt;［戻る］ボタン" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="875" y="360" width="210" height="182.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="6" target="136">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="840" y="254.99999999999997" as="sourcePoint"/>
+                        <mxPoint x="920.0599999999995" y="259.98" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="138" value="作品情報：更新をクリック" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="137">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="5" y="-26" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="140" value="作品一覧を出すから&lt;br&gt;検索結果に機能を追加する&lt;br&gt;形で実装するのがいい" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+                    <mxGeometry x="1065" y="355" width="175" height="165" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
