@@ -19,19 +19,19 @@
 	<%-- シリーズ:<input type="text" name="series"><br>
 	カテゴリー:<input type="text" name="category"><br>
 	釉薬:<input type="text" name="glaze"><br> --%>
-	シリーズ(プルダウン):<select name="seriesTag">
+	シリーズ:<select name="seriesTag">
 		<option value="">条件指定なし</option>
 		<c:forEach var="sTag" items="${seriesTag}">
 			<option value="${sTag.seriesID }"><c:out value="${sTag.seriesID}:${sTag.seriesName}"></c:out></option>
 		</c:forEach>
 	</select><br>
-	カテゴリー(プルダウン):<select name="categoryTag">
+	カテゴリー:<select name="categoryTag">
 		<option value="">条件指定なし</option>
 		<c:forEach var="cTag" items="${categoryTag }">
 			<option value="${cTag.categoryID }"><c:out value="${cTag.categoryID}:${cTag.categoryName}" /></option>
 		</c:forEach>
 	</select><br>
-	釉薬(プルダウン):<select name="glazeTag">
+	釉薬:<select name="glazeTag">
 		<option value="">条件指定なし</option>
 		<c:forEach var="gTag" items="${glazeTag}">
 			<option value="${gTag.glazeID }"><c:out value="${gTag.glazeID}:${gTag.glazeName}" /></option>

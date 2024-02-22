@@ -25,7 +25,6 @@ public class ProductsDAO {
 	public Integer insertNewProduct(Product product) {
 		//戻り値の初期化
 		Integer result = null;
-		
 		//LoadDriver.javaよりJDBCドライバの読み込み
 		LoadDriver.execute();
 		
@@ -40,16 +39,22 @@ public class ProductsDAO {
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 			
 			//INSERT文を用意
+//			String sql =
+//					"INSERT INTO PRODUCTS (TITLE,SERIES,CATEGORY,GLAZE,PATTERN,COLOR,SIZE,PRICE,STOCK,PRODUCT_YEAR,IS_ONLINE_SHOP) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+			
 			String sql =
-					"INSERT INTO PRODUCTS (TITLE,SERIES,CATEGORY,GLAZE,PATTERN,COLOR,SIZE,PRICE,STOCK,PRODUCT_YEAR,IS_ONLINE_SHOP) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+					"INSERT INTO PRODUCTS_WITH_FK (TITLE,SERIES_ID,CATEGORY_ID,GLAZE_ID,PATTERN,COLOR,SIZE,PRICE,STOCK,PRODUCT_YEAR,IS_ONLINE_SHOP) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			//INSERT文に値を流し込みSQL文を組み立てる
 			pstmt.setString(1, product.getTitle()); //TITLE
-			pstmt.setString(2, product.getSeries()); //SERIES
-			pstmt.setString(3, product.getCategory()); //CATEGORY
-			pstmt.setString(4, product.getGlaze()); //GLAZE
+//			pstmt.setString(2, product.getSeries()); //SERIES
+			pstmt.setInt(2, product.getSeriesID()); //SERIES_ID
+//			pstmt.setString(3, product.getCategory()); //CATEGORY
+			pstmt.setInt(3, product.getCategoryID()); //CATEGORY_ID
+//			pstmt.setString(4, product.getGlaze()); //GLAZE
+			pstmt.setInt(4, product.getGlazeID()); //GLAZE_ID
 			pstmt.setString(5, product.getPattern()); //PATTERN
 			pstmt.setString(6, product.getColor()); //COLOR
 			pstmt.setString(7, product.getSize()); //SIZE

@@ -38,4 +38,43 @@ public class ProductTagLogic {
 		glazeList = dao.getGlazeTable();
 		return glazeList;
 	}
+	
+	//シリーズ名を新規追加するメソッド
+	public boolean executeInsertNewSeries(Series series) {
+		ProductTagsDAO dao = new ProductTagsDAO();
+		Integer result = dao.insertNewSeries(series);
+		boolean r;
+		if(result == 1) {
+			r = true;
+		}else {
+			r = false;
+		}
+		return r;
+	}
+	
+	//カテゴリー名を新規追加するメソッド
+	public boolean executeInsertNewCategory(Category category) {
+		ProductTagsDAO dao = new ProductTagsDAO();
+		Integer result = dao.insertNewCategory(category);
+		boolean r;
+		if(result == 1) {
+			r = true;
+		}else {
+			r = false;
+		}
+		return r;
+	}
+	
+	//釉薬を新規追加するメソッド
+	public boolean executeInsertNewGlaze(Glaze glaze) {
+		ProductTagsDAO dao = new ProductTagsDAO();
+		Integer result = dao.insertNewGlaze(glaze);
+		boolean r;
+		if(result == 1) {
+			r = true;
+		}else {
+			r = false;
+		}
+		return r;
+	}
 }

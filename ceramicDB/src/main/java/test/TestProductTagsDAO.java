@@ -18,6 +18,9 @@ public class TestProductTagsDAO {
 		System.out.println("");
 		//データベースからCategoryテーブルの情報を取得
 		testGlazeTableOK();
+		System.out.println("");
+		//データベースに新シリーズを追加
+		testInsertNewSeriesOK();
 	}
 	
 	public static void testSeriesTableOK() {
@@ -48,5 +51,14 @@ public class TestProductTagsDAO {
 		for(Glaze glaze: glazeList) {
 			System.out.println("釉薬:" + glaze.getGlazeID() + "|" + glaze.getGlazeName());
 		}
+	}
+	
+	public static void testInsertNewSeriesOK() {
+		Series series = new Series();
+		series.setSeriesName("テスト");
+		ProductTagsDAO dao = new ProductTagsDAO();
+		Integer result = dao.insertNewSeries(series);
+		System.out.println("新シリーズ追加テスト");
+		System.out.println(result);
 	}
 }

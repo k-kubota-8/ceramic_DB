@@ -10,6 +10,7 @@
 <body>
 	<h1>【作品検索結果】</h1>
 	<p>
+	<form action="" method="post">
 	<table border="1">
 		<thead>
 			<tr>
@@ -25,6 +26,7 @@
 				<th>在庫(個)</th>
 				<th>制作年(年)</th>
 				<th>ネット販売</th>
+				<th>変更作品選択</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,10 +47,14 @@
 						<c:when test="${result.onlineShop }"><td>有</td></c:when>
 						<c:otherwise><td>無</td></c:otherwise>
 					</c:choose>
+					<td><input type="radio" name="selectedProduct" value="${result.productID}"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<br>
+	<input type ="submit" value="選択した作品情報の変更">
+	</form>
 	</p>
 	<a href="index.jsp">[トップへ戻る]</a><br>
 	<a href="SelectProductServlet">[続けて検索]</a>
